@@ -13,9 +13,20 @@ export const useCart = create<CartState>((set) => ({
     });
   },
   remove(id: string) {
-    set((state: any) => ({
-      items: state.items.filter((i: any) => i.id !== id),
-    }));
+    set((state) => {
+      const index = state.items.findIndex((i) => i.id === id);
+      if (index > -1) {
+        const cloned = [...state.items];
+        if (cloned[index].qty > 1) {
+          cloned[index].qty--;
+          return { items: cloned };
+        } else {
+          cloned.splice(index, 1);
+          return { items: cloned };
+        }
+      }
+      return { items: [...state.items] };
+    });
   },
   clear() {
     set({ items: [] });

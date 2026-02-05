@@ -6,6 +6,7 @@ import { useCart } from "@/lib/store";
 export default function Menu() {
   const [menu, setMenu] = useState<any[]>([]);
   const add = useCart((s) => s.add);
+  const remove = useCart((s) => s.remove);
 
   useEffect(() => {
     fetch("/api/menu")
@@ -24,13 +25,22 @@ export default function Menu() {
           <div className="px-6 py-4">
             <h3 className="font-bold text-xl mb-2">{item.name}</h3>
             <p className="text-gray-700 text-base">{item.description}</p>
+            <p>€{item.price}</p>
           </div>
-          <div className="px-6 pt-4 pb-2">
+          <div className="px-6 pt-4 pb-2 inline-flex gap-2">
             <button
+              value="Remove"
+              onClick={() => remove(item.id)}
+              className="bg-gray-200 hover:bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 hover:text-white mr-2 mb-2 cursor-pointer"
+            >
+              -
+            </button>
+            <button
+              value="Add"
               onClick={() => add(item)}
               className="bg-gray-200 hover:bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 hover:text-white mr-2 mb-2 cursor-pointer"
             >
-              Add €{item.price}
+              +
             </button>
           </div>
         </div>
