@@ -8,7 +8,7 @@ export default function Home() {
       <Menu />
       <div className="space-y-6">
         <Cart />
-        <Checkout />
+        {/* <Checkout /> */}
       </div>
     </main>
   );

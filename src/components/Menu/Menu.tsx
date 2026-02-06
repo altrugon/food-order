@@ -5,8 +5,7 @@ import { useCart } from "@/lib/store";
 
 export default function Menu() {
   const [menu, setMenu] = useState<any[]>([]);
-  const add = useCart((s) => s.add);
-  const remove = useCart((s) => s.remove);
+  const { add, remove } = useCart((s: any) => s);
 
   useEffect(() => {
     fetch("/api/menu")
@@ -30,7 +29,7 @@ export default function Menu() {
           <div className="px-6 pt-4 pb-2 inline-flex gap-2">
             <button
               value="Remove"
-              onClick={() => remove(item.id)}
+              onClick={() => remove(item)}
               className="bg-gray-200 hover:bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 hover:text-white mr-2 mb-2 cursor-pointer"
             >
               -

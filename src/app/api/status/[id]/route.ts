@@ -1,8 +1,12 @@
 import { orders } from "@/lib/db";
 import { simulateOrder } from "@/lib/orderLifecycle";
 
-export async function GET(_: Request, { params }: any) {
-  const order = orders[params.id];
+export async function GET(
+  _: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  const { id } = await params;
+  const order = orders[id];
   if (!order) return new Response("Not found", { status: 404 });
 
   const stream = new ReadableStream({

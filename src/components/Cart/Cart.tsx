@@ -1,11 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/store";
 
 export default function Cart() {
-  const { items, clear } = useCart((s: any) => s);
+  const { items, total, clear } = useCart((s: any) => s);
+  const router = useRouter();
 
-  const total = items.reduce((sum: number, i: any) => sum + i.price * i.qty, 0);
+  // const total = items.reduce((sum: number, i: any) => sum + i.price * i.qty, 0);
 
   return (
     <div className="border rounded p-4 space-y-4 bg-white">
@@ -29,12 +31,20 @@ export default function Cart() {
         <span>€{total.toFixed(2)}</span>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 justify-between">
         <button
           className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer"
           onClick={clear}
         >
           Clear Cart
+        </button>
+
+        <button
+          disabled={!items.length}
+          onClick={() => router.push("/checkout")}
+          className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-50 cursor-pointer disabled:cursor-auto"
+        >
+          Place Order
         </button>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata = {
@@ -14,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-gray-200 text-gray-900 min-h-screen">
         <header className="bg-white shadow p-4 font-bold text-lg">
-          🍕 Food Delivery
+          <Link href="/">🍕 Food Delivery</Link>
         </header>
         {children}
       </body>

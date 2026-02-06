@@ -6,7 +6,8 @@ export interface CartItem extends ProductType {
 
 export interface CartState {
   items: CartItem[];
+  total: number;
   add(item: ProductType): void;
-  remove(id: string): void;
+  remove(item: ProductType): void;
   clear(): void;
 }
