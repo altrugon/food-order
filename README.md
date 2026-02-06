@@ -35,6 +35,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## Scripts
+
+Below are the scripts available in `package.json`:
+
+- **dev:** run dev server.
+- **build:** build the app.
+- **start:** run the app.
+- **lint:** linting.
+- **test:** run tests.
+
+You can run any command from the shell via `npm run <script>`.
 
 ## UX Flow
 
