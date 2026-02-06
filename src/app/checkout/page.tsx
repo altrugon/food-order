@@ -39,6 +39,7 @@ export default function CheckoutPage() {
         placeholder="Full name"
         className="w-full border p-3 rounded"
         value={form.name}
+        required
         onChange={(e) => setForm({ ...form, name: e.target.value })}
       />
 
@@ -46,6 +47,7 @@ export default function CheckoutPage() {
         placeholder="Delivery address"
         className="w-full border p-3 rounded"
         value={form.address}
+        required
         onChange={(e) => setForm({ ...form, address: e.target.value })}
       />
 
@@ -53,6 +55,7 @@ export default function CheckoutPage() {
         placeholder="Phone number"
         className="w-full border p-3 rounded"
         value={form.phone}
+        required
         onChange={(e) => setForm({ ...form, phone: e.target.value })}
       />
 
