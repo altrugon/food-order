@@ -1,21 +1,14 @@
 "use client";
 
 import { useEffect, useState, use } from "react";
+import { CustomerType } from "@/models/customer";
+import { CartItem } from "@/models/cart";
 
 type Order = {
   id: string;
   status: string;
-  customer: {
-    name: string;
-    address: string;
-    phone: string;
-  };
-  items: {
-    id: string;
-    name: string;
-    price: number;
-    qty: number;
-  }[];
+  customer: CustomerType;
+  items: CartItem[];
   total: number;
 };
 
@@ -46,11 +39,6 @@ export default function OrderStatusPage({
       </div>
     );
   }
-
-  // const total = order.items.reduce(
-  //   (sum, item) => sum + item.price * item.qty,
-  //   0,
-  // );
 
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6">

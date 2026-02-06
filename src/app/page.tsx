@@ -1,6 +1,5 @@
 import Menu from "@/components/Menu";
 import Cart from "@/components/Cart";
-import Checkout from "@/components/Checkout";
 
 export default function Home() {
   return (
@@ -8,7 +7,6 @@ export default function Home() {
       <Menu />
       <div className="space-y-6">
         <Cart />
-        {/* <Checkout /> */}
       </div>
     </main>
   );

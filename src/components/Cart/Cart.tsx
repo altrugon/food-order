@@ -7,8 +7,6 @@ export default function Cart() {
   const { items, total, clear } = useCart((s: any) => s);
   const router = useRouter();
 
-  // const total = items.reduce((sum: number, i: any) => sum + i.price * i.qty, 0);
-
   return (
     <div className="border rounded p-4 space-y-4 bg-white">
       <h2 className="text-xl font-semibold">Cart</h2>
@@ -42,7 +40,7 @@ export default function Cart() {
         <button
           disabled={!items.length}
           onClick={() => router.push("/checkout")}
-          className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-50 cursor-pointer disabled:cursor-auto"
+          className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
         >
           Place Order
         </button>

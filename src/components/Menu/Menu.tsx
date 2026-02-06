@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { useCart } from "@/lib/store";
+import ProductType from "@/models/product";
 
 export default function Menu() {
-  const [menu, setMenu] = useState<any[]>([]);
+  const [menu, setMenu] = useState<ProductType[]>([]);
   const { add, remove } = useCart((s: any) => s);
 
   useEffect(() => {

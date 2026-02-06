@@ -3,12 +3,13 @@
 import { useRouter } from "next/navigation";
 import { useCart } from "@/lib/store";
 import { useState } from "react";
+import { CustomerType } from "@/models/customer";
 
 export default function CheckoutPage() {
   const router = useRouter();
   const { items, total, clear } = useCart((s: any) => s);
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<CustomerType>({
     name: "",
     address: "",
     phone: "",
@@ -58,7 +59,7 @@ export default function CheckoutPage() {
       <button
         disabled={!form.name || !form.address || !form.phone}
         onClick={submit}
-        className="w-full bg-green-600 text-white py-3 rounded disabled:opacity-50"
+        className="w-full bg-green-600 text-white py-3 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Checkout
       </button>
