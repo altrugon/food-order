@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useCart } from "@/lib/store";
 import ProductType from "@/models/product";
@@ -31,16 +32,16 @@ export default function Menu() {
             <button
               value="Remove"
               onClick={() => remove(item)}
-              className="bg-gray-200 hover:bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 hover:text-white mr-2 mb-2 cursor-pointer"
+              className="bg-gray-200 hover:bg-blue-500 rounded px-3 py-1 text-sm font-semibold text-gray-700 hover:text-white mr-2 mb-2 cursor-pointer"
             >
-              -
+              <Image src="/remove.svg" alt="remove" width={20} height={20} />
             </button>
             <button
               value="Add"
               onClick={() => add(item)}
-              className="bg-gray-200 hover:bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 hover:text-white mr-2 mb-2 cursor-pointer"
+              className="bg-gray-200 hover:bg-blue-500 rounded px-3 py-1 text-sm font-semibold text-gray-700 hover:text-white mr-2 mb-2 cursor-pointer"
             >
-              +
+              <Image src="/add.svg" alt="add" width={20} height={20} />
             </button>
           </div>
         </div>
