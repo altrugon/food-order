@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## UX Flow
+
+Below can be seen the UX flox for the app:
+
+Menu → Cart → Place Order → Checkout Page (Form) → Submit → Order Status Page (Live Updates)
+
+| Step          | Description                 |
+| ------------- | --------------------------- |
+| Menu          | Select food                 |
+| Cart          | Shows selected food         |
+| Place Order   | Redirect to checkout        |
+| Checkout Page | User enters contact details |
+| Submit        | Creates order               |
+| Redirect      | Goes to status page         |
+| Status Page   | Live SSE updates            |
